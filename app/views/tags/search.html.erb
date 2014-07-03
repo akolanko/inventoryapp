@@ -1,0 +1,23 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+	<span class="color"><h2>Search for Product by Tag</h2></span>
+	<div class="formdiv">
+		<%= form_tag "/users/#{@user.id}/tags/search", method: "get" do %>
+			<%= label_tag :query, "Tag:" %>
+			<br>
+			<%= text_field_tag :query %>
+			<br>
+			<%= submit_tag "Search", :class => "submit", data: {disable_with: "Submitting..."} %>
+		<% end %>
+	</div>
+	<br>
+	<% if @tags.first %>
+		<h3> All Products with tag <span class="color"><%= @tags.first.name %></span> </h3>
+		<% @tags.each do |tag| %>
+			<%= link_to tag.product.name, user_category_product_path(@user.id, tag.product.category.id, tag.product.id) %>
+			<br>
+			<%= image_tag tag.product.image.url(:medium), class: "smallproduct" %>
+			<br><br>
+		<% end %>
+		<%= paginate @tags %>
+	<% end %>
+<% end %>

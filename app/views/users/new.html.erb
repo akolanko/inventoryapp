@@ -1,0 +1,47 @@
+<div class="colone">
+
+	<h2>Sign Up</h2>
+
+		<% if @user.errors.full_messages.any? %>
+			<ul class="errormessages">
+				<% @user.errors.full_messages.each do |error| %>
+					<li>
+						<%= error %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<div class="formdiv">
+			<%=form_for @user do |f| %>
+				<%= f.label :email, "Email" %>
+				<br>
+				<%= f.text_field :email %>
+				<br>
+				<%= f.label :email_confirmation, "Confirm Email" %>
+				<br>
+				<%= f.text_field :email_confirmation %>
+				<br>
+				<%= f.label :username, "Username" %>
+				<br>
+				<%= f.text_field :username %>
+				<br>
+				<%= f.label :password, "Password" %>
+				<br>
+				<%= f.password_field :password %>
+				<br>
+				<%= f.label :password_confirmation, "Confirm Password" %>
+				<br>
+				<%= f.password_field :password_confirmation %>
+				<br>
+				<%= f.submit "Submit", :class => "submit", data: {disable_with: "Submitting..."} %>
+			<% end %>
+		</div>
+	<% if current_user && current_user.admin == true %>
+		<br><br>
+		<%= link_to "[All Users]", users_path, class: "colorlink" %>
+	<% end %>
+
+</div>
+<div class="clear">
+</div>

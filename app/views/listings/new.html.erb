@@ -1,0 +1,33 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+
+	<h3>Add an Online Listing to <%= link_to @product.name, user_category_product_path(@user.id, @category.id, @product.id), class: "colorlink" %></h3>
+
+		<% if @listing.errors.full_messages.any? %>
+			<ul class="errormessages">
+				<% @listing.errors.full_messages.each do |error| %>
+					<li>
+						<%= error %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<div class="formdiv">
+			<%= form_for [@user, @category, @product, @listing] do |f| %>
+				<%= f.label :website, "Website" %>
+				<br>
+				<%= f.text_field :website %>
+				<br>
+				<%= f.label :posted_date, "Date Posted" %>
+				<br>
+				<%= f.date_field :posted_date %>
+				<br>
+				<%= f.label :end_date, "End Post Date" %>
+				<br>
+				<%= f.date_field :end_date %>
+				<br>
+				<%= f.submit "Submit", :class => "submit", data: {disable_with: "Submitting..."} %>
+			<% end %>
+		</div>
+
+<% end %>

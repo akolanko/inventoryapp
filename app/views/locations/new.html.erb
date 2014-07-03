@@ -1,0 +1,45 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+
+	<h3>Add a Location to <%= link_to @product.name, user_category_product_path(@user.id, @category.id, @product.id), class: "colorlink" %></h3>
+
+		<% if @location.errors.full_messages.any? %>
+			<ul class="errormessages">
+				<% @location.errors.full_messages.each do |error| %>
+					<li>
+						<%= error %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+		<div class="formdiv">
+			<%= form_for [@user, @category, @product, @location] do |f| %>
+				<%= f.label :location, "Physical Location" %>
+				<br>
+				<%= f.text_field :location %>
+				<br>
+				<%= f.label :left_date, "Left Date" %>
+				<br>
+				<%= f.date_field :left_date %>
+				<br>
+				<%= f.label :return_date, "Return Date" %>
+				<br>
+				<%= f.date_field :return_date %>
+				<br>
+				<%= f.label :contact_name, "Contact Name" %>
+				<br>
+				<%= f.text_field :contact_name%>
+				<br>
+				<%= f.label :contact_email, "Contact Email" %>
+				<br>
+				<%= f.text_field :contact_email %>
+				<br>
+				<%= f.label :contact_phone, "Contact Phone Number" %>
+				<br>
+				<%= f.text_field :contact_phone %>
+				<br>
+				<%= f.submit "Submit", :class => "submit", data: {disable_with: "Submitting..."} %>
+			<% end %>
+		</div>
+
+<% end %>

@@ -1,0 +1,35 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+
+	<h2>Edit <%= link_to @product.name, user_category_product_path(@user.id, @category.id, @product.id), class: "colorlink" %>'s Location</h2>
+
+		<div class="formdiv">
+			<%= form_for [@user, @category, @product, @location] do |f| %>
+				<%= f.label :location, "Physical Location" %>
+				<br>
+				<%= f.text_field :location %>
+				<br>
+				<%= f.label :left_date, "Left Date" %>
+				<br>
+				<%= f.date_field :left_date %>
+				<br>
+				<%= f.label :return_date, "Return Date" %>
+				<br>
+				<%= f.date_field :return_date %>
+				<br>
+				<%= f.label :contact_name, "Contact Name" %>
+				<br>
+				<%= f.text_field :contact_name%>
+				<br>
+				<%= f.label :contact_email, "Contact Email" %>
+				<br>
+				<%= f.text_field :contact_email %>
+				<br>
+				<%= f.label :contact_phone, "Contact Phone Number" %>
+				<br>
+				<%= f.text_field :contact_phone %>
+				<br>
+				<%= f.submit "Update", :class => "submit", data: {disable_with: "Submitting..."} %>
+			<% end %>
+		</div>
+
+<% end %>

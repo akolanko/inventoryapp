@@ -1,0 +1,14 @@
+<div class="colone">
+	<h2>Reset Password</h2> 
+	<div class="formdiv">
+		<%= form_tag password_resets_path, :method => :post do %>  
+		    <%= label_tag :email %>
+		    <br>
+		    <%= text_field_tag :email, params[:email] %>
+		    <br>
+		  	<%= submit_tag "Reset Password", class: "submit", data: {disable_with: "Submitting..."} %>
+		<% end %>
+	</div>
+</div>
+<div class="clear">
+</div>

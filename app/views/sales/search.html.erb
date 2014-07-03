@@ -1,0 +1,25 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+	<span class="color"><h2>Search for Sale by Where it was Sold</h2></span>
+	<div class="formdiv">
+		<%= form_tag "/users/#{@user.id}/sales/search", method: "get" do %>
+			<%= label_tag :query, "Sold Through:" %>
+			<br>
+			<%= text_field_tag :query %>
+			<br>
+			<%= submit_tag "Search", :class => "submit", data: {disable_with: "Submitting..."} %>
+		<% end %>
+	</div>
+	<br>
+	<% if @sales.first %>
+		<span class="color"><h3>Results:</h3></span>
+		<% @sales.all.each do |sale| %>
+			<%= link_to sale.product.name, user_category_product_path(sale.product.category.user.id, sale.product.category.id, sale.product.id) %>
+			<br>
+			Sold Through: <span class="color"><%= sale.through %></span>
+			<br>
+			<%= image_tag sale.product.image.url(:medium), class: "smallproduct" %>
+			<br><br>
+		<% end %>
+		<%= paginate @sales %>
+	<% end %>
+<% end %>

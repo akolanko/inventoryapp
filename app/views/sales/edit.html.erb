@@ -1,0 +1,35 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+
+	<h3>Update <%= link_to @product.name, user_category_product_path(@user.id, @category.id, @product.id), class: "colorlink" %> Sale</h3>
+
+		<div class="formdiv">
+			<%= form_for [@user, @category, @product, @sale] do |f| %>
+				<%= f.label :price, "Price Sold" %>
+				<br>
+				<%= f.text_field :price %>
+				<br>
+				<%= f.label :shipping_cost, "Shipping Cost" %>
+				<br>
+				<%= f.text_field :shipping_cost %>
+				<br>
+				<%= f.label :shipping_paid, "Shipping Paid" %>
+				<br>
+				<%= f.text_field :shipping_paid %>
+				<br>
+				<%= f.label :tax, "Tax" %>
+				<br>
+				<%= f.text_field :tax %>
+				<br>
+				<%= f.label :through, "Sold Through" %>
+				<br>
+				<%= f.text_field :through %>
+				<br>
+				<%= f.label :date, "Date Sold" %>
+				<br>
+				<%= f.date_field :date %>
+				<br>
+				<%= f.submit "Update", :class => "submit", data: {disable_with: "Submitting..."} %>
+			<% end %>
+		</div>
+
+<% end %>

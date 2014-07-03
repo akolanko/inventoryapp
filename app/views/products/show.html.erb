@@ -1,0 +1,120 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+
+	<div id="productshow">
+
+		<h3><%= @product.name %></h3>
+		<div class="biggerfont">
+			<span class="color">Category:</span> <%= link_to @category.name, user_category_path(@user.id, @category.id) %>
+			<br><br>
+			<span class="color">Color:</span> <%= @product.color %>
+			<br><br>
+			<span class="color">Material:</span> <%= @product.material %>
+			<br><br>
+			<span class="color">Size:</span> <%= @product.size %>
+			<br><br>
+			<span class="color">Measurements:</span>
+			<br>
+			<%= @product.measurements %>
+			<br><br>
+			<span class="color">Description:</span>
+			<br>
+			<%= @product.description %>
+			<br><br>
+			<span class="color">Price:</span>
+				<% if @product.price %>
+					$<%= @product.price %>
+				<% end %>
+			<br><br>
+			<span class="color">Availability:</span>
+					<% if @product.inventory <=0 %>
+						Out of Stock
+					<% else %>
+						In Stock
+						<br>
+						<span class="color">Amount in stock:</span> <%= @product.inventory %>
+					<% end%>
+			<br><br>
+			<span class="color">Tags:</span>
+				<% if @product.tags.first %>
+					<% @product.tags.all.each do |tag| %>
+						"<%= tag.name %>" 
+					<% end %>
+				<% end %>
+				<br>
+				<span class="paddingspan"><%=link_to "[Add Tag]", user_category_product_tags_path(@user.id, @category.id, @product.id), class: "colorlink" %></span>
+
+		</div>
+		<br><br>
+		<span class="linkpadding"><%= link_to "[Edit Product]", edit_user_category_product_path(@user.id, @category.id, @product.id), class: "colorlink" %></span>
+		<span class="linkpadding"><%= link_to "[Delete Product]", user_category_product_path(@user.id, @category.id, @product.id), method: :delete, confirm: "Are you sure you want to delete this product?", class: "colorlink" %></span>
+
+		<br><br><hr>
+		<h3>Location</h3>
+		<% if @product.locations.first %>
+			<% @product.locations.all.each do |location| %>
+				<div class="biggerfont">
+					<span class="color">Physical Location:</span> <%= location.location %>
+					<br><br>
+					<span class="color">Left Stock Date:</span> <%= location.left_date %>
+					<br><br>
+					<span class="color">Return Date:</span> <%= location.return_date %>
+					<br><br>
+					<span class="color">Contact Name:</span> <%= location.contact_name %>
+					<br><br>
+					<span class="color">Contact Email:</span> <%= location.contact_email %>
+					<br><br>
+					<span class="color">Contact Phone Number:</span> <%= location.contact_phone %>
+					<br><br>
+				</div>
+				<br>
+				<span class="linkpadding"><%= link_to "[Edit Location]", edit_user_category_product_location_path(@user.id, @category.id, @product.id, location.id), class: "colorlink" %></span>
+				<span class="linkpadding"><%= link_to "[Delete Location]", user_category_product_location_path(@user, @category.id, @product.id, location.id), method: :delete, confirm: "Are you sure you want to delete the location of this product?", class: "colorlink" %></span>
+			<% end %>
+		<% else %>
+			<div class="biggerfont">
+				There are currently no locations assigned to this product.
+			</div>
+			<br><br>
+			<span class="linkpadding"><%= link_to "[Add Location]", new_user_category_product_location_path(@user.id, @category.id, @product.id), class: "colorlink" %></span>
+		<% end %>
+
+		<br><br><hr>
+		<h3>Listings</h3>
+		<% if @product.listings.first %>
+			<% @product.listings.all.each do |listing| %>
+				<div class="biggerfont">
+					<span class="color">Website:</span> <%= listing.website %>
+					<br><br>
+					<span class="color">Date Posted:</span> <%= listing.posted_date %>
+					<br><br>
+					<span class="color">End Post Date:</span> <%= listing.end_date %>
+					<br><br>
+				</div>
+				<br>
+				<span class="linkpadding"><%= link_to "[Edit Listing]", edit_user_category_product_listing_path(@user.id, @category.id, @product.id, listing.id), class: "colorlink" %></span>
+				<span class="linkpadding"><%= link_to "[Delete Listing]", user_category_product_listing_path(@user.id, @category.id, @product.id, listing.id), method: :delete, confirm: "Are you sure you want to delete this listing?", class: "colorlink" %></span>
+			<% end %>
+		<% else %>
+			<div class="biggerfont">
+				This product is not currently listed online.
+			</div>
+		<% end %>
+		<br><br>
+		<span class="linkpadding"><%= link_to "[Add Listing]", new_user_category_product_listing_path(@user.id, @category.id, @product.id), class: "colorlink" %></span>
+
+		<br><br><hr>
+		<h3>Sales</h3>
+		<div class="biggerfont">
+			<span class="color">Number Sold:</span> <%= @product.sales.all.count %>
+		</div>
+		<br><br>
+		<span class="linkpadding"><%= link_to "[View All Sales for Product]", user_category_product_sales_path(@user.id, @category.id, @product.id), class: "colorlink" %></span>
+		<br><br><hr>
+	</div>
+	<div id="productimg">
+		<%= image_tag @product.image.url(:medium), class: "productsquare" %>
+	</div>
+	<div class="clear">
+	</div>
+
+<% end %>

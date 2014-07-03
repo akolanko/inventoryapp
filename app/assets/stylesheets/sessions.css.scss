@@ -1,0 +1,35 @@
+button#signup{
+	width: 115px;
+	height: 115px;
+	border-radius: 100%;
+	background-color: #a9c9b7;
+	font-family: inherit;
+	text-transform: lowercase;
+	font-size: 1.2em;
+	letter-spacing: .1em;
+	font-weight: bold;
+	font-weight: normal;
+	text-decoration: none;
+	color: #fff;
+	padding: 0;
+	border: none;
+}
+
+button#signup:hover{
+	background-color: #cfe3db;
+	cursor: pointer;
+}
+
+button#signup:visited{
+	color: #fff;
+}
+
+button#signup:active{
+	background-color: #cfe3db;
+	color: #fff;
+}
+
+.homeimg{
+	width: 600px;
+	margin: 10px 150px;
+}

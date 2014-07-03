@@ -1,0 +1,18 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+	<span class="color"><h2>All Product Locations</h2></span>
+	<%= link_to "[Search for Product Location]", user_locations_search_path(@user.id), class: "colorlink" %>
+	<br><br>
+	<% if @locations.first %>
+		<% @locations.each do |location| %>
+			<%= link_to location.product.name, user_category_product_path(@user.id, location.product.category.id, location.product.id) %>
+			<br>
+			Location: <span class="color"><%= location.location %></span>
+			<br>
+			<%= image_tag location.product.image.url(:medium), class: "smallproduct" %>
+			<br><br>
+		<% end %>
+		<%= paginate @locations %>
+	<% else %>
+		All products are currently in your possession.
+	<% end %>
+<% end %>

@@ -1,0 +1,18 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+	<span class="color"><h2>All Online Listings</h2></span>
+	<%= link_to "[Search for Product Listing]", user_listings_search_path(@user.id), class: "colorlink" %>
+	<br><br>
+	<% if @listings.first %>
+		<% @listings.each do |listing| %>
+			<%= link_to listing.product.name, user_category_product_path(listing.product.category.user.id, listing.product.category.id, listing.product.id) %>
+			<br>
+			Website: <span class="color"><%= listing.website %></span>
+			<br>
+			<%= image_tag listing.product.image.url(:medium), class: "smallproduct" %>
+			<br><br>
+		<% end %>
+		<%= paginate @listings %>
+	<% else %>
+		There are no products currently listed online.
+	<% end %>
+<% end %>

@@ -1,0 +1,36 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+	<h2>Categories</h2>
+	<br><br>
+	<% if @categories.first %>
+		<% @categories.each do |category| %>
+			<%= link_to category.name, user_category_path(@user.id, category.id) %>
+			<span class="paddingspan"><%=link_to "[Add Product]", new_user_category_product_path(@user.id, category.id), class: "colorlink" %></span>
+			<span class= "paddingspan"><%= link_to "[Delete]", user_category_path(@user.id, category.id), method: :delete, confirm: "Are you sure you want to delete #{category.name}?", class: "colorlink" %></span>
+			<br><br>
+		<% end %>
+	<% else %>
+		There are currently no categories.
+	<% end %>
+	<br><br>
+	<span class="color"><h3> Add a Category </h3></span>
+
+		<% if @category.errors.full_messages.any? %>
+			<ul class="errormessages">
+				<% @category.errors.full_messages.each do |error| %>
+					<li>
+						<%= error %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+	<div class="formdiv">
+		<%= form_for [@user, @category] do |f| %>
+			<%=f.label :name, "Name" %>
+			<br>
+			<%=f.text_field :name %>
+			<br>
+			<%=f.submit "Submit", :class => "submit", data: {disable_with: "Submitting..."} %>
+		<% end %>
+	</div>
+<% end %>

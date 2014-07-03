@@ -1,0 +1,30 @@
+<div class="colone">
+  <h2>Reset Password</h2>
+
+    <% if @user.errors.full_messages.any? %>
+        <ul class="errormessages">
+          <% @user.errors.full_messages.each do |error| %>
+            <li>
+              <%= error %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+
+  <div class="formdiv">
+    <%= form_for @user, :url => password_reset_path(params[:id]) do |f| %>
+        <%= f.label :password %>
+        <br> 
+        <%= f.password_field :password %>
+        <br>
+        <%= f.label :password_confirmation %>
+        <br>
+        <%= f.password_field :password_confirmation %>
+        <br>
+        <%= submit_tag "Update Password", class: "submit", data: {disable_with: "Submitting..."} %>
+    <% end %>
+  </div>
+</div>
+
+<div class="clear">
+</div>  

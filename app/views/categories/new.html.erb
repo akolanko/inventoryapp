@@ -1,0 +1,23 @@
+<% if current_user.id == @user.id || current_user.admin == true%>
+	<h4> Add a Category </h4>
+
+		<% if @category.errors.full_messages.any? %>
+			<ul class="errormessages">
+				<% @category.errors.full_messages.each do |error| %>
+					<li>
+						<%= error %>
+					</li>
+				<% end %>
+			</ul>
+		<% end %>
+
+	<div class="formdiv">
+		<%= form_for [@user, @category] do |f| %>
+			<%=f.label :name, "Name" %>
+			<br>
+			<%=f.text_field :name %>
+			<br>
+			<%=f.submit "Submit", :class => "submit", data: {disable_with: "Submitting..."} %>
+		<% end %>
+	</div>
+<% end %>

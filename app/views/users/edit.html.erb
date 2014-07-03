@@ -1,0 +1,23 @@
+<% if current_user.id == @user.id || current_user.admin == true%>
+	<h2>Edit <%= @user.username %>'s Information</h2>
+
+	<div class="formdiv">
+		<%=form_for @user do |f| %>
+			<%= f.label :email, "Email" %>
+			<br>
+			<%= f.text_field :email %>
+			<br>
+			<%= f.label :username, "Username" %>
+			<br>
+			<%= f.text_field :username %>
+			<br>
+			<% if current_user.admin %>
+				<%= f.label :admin, "Admin" %>
+				<br>
+				<%= f.check_box :admin %>
+				<br>
+			<% end %>
+			<%= f.submit "Update", :class => "submit", data: {disable_with: "Submitting..."} %>
+		<% end %>
+	</div>
+<% end %>

@@ -1,0 +1,25 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+	<span class="color"><h2>Search for Product Listing by Website</h2></span>
+	<div class="formdiv">
+		<%= form_tag "/users/#{@user.id}/listings/search", method: "get" do %>
+			<%= label_tag :query, "Website:" %>
+			<br>
+			<%= text_field_tag :query %>
+			<br>
+			<%= submit_tag "Search", :class => "submit", data: {disable_with: "Submitting..."} %>
+		<% end %>
+	</div>
+	<br>
+	<% if @listings.first %>
+		<span class="color"><h3>Results:</h3></span>
+		<% @listings.all.each do |listing| %>
+			<%= link_to listing.product.name, user_category_product_path(listing.product.category.user.id, listing.product.category.id, listing.product.id) %>
+			<br>
+			Website: <span class="color"><%= listing.website %></span>
+			<br>
+			<%= image_tag listing.product.image.url(:medium), class: "smallproduct" %>
+			<br><br>
+		<% end %>
+		<%= paginate @listings %>
+	<% end %>
+<% end %>

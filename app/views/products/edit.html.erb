@@ -1,0 +1,51 @@
+<% if current_user.id == @user.id || current_user.admin == true %>
+
+	<h2>Edit <%= @product.name %></h2>
+
+		<div class="formdiv">
+			<%= form_for [@user, @category, @product] do |f| %>
+				<%= f.label :name, "Name" %>
+				<br>
+				<%= f.text_field :name %>
+				<br>
+				<%= f.label :color, "Color" %>
+				<br>
+				<%= f.text_field :color %>
+				<br>
+				<%= f.label :material, "Material" %>
+				<br>
+				<%= f.text_field :material %>
+				<br>
+				<%= f.label :material, "Size" %>
+				<br>
+				<%= f.text_field :size %>
+				<br>
+				<%= f.label :measurements, "Measurements" %>
+				<br>
+				<%= f.text_area :measurements%>
+				<br>
+				<%= f.label :material, "Description" %>
+				<br>
+				<%= f.text_area :description %>
+				<br>
+				<%= f.label :price, "Price" %>
+				<br>
+				<%= f.text_field :price %>
+				<br>
+				<%= f.label :inventory, "Amount in Stock" %>
+				<br>
+				<%= f.text_field :inventory %>
+				<br>
+				<%= f.label :soldout, "Sold Out" %>
+				<br>
+				<%= f.check_box :soldout %>
+				<br>
+				<%= f.label :image, "Upload Image" %>
+				<br>
+				<%= f.file_field :image %>
+				<br>
+				<%= f.submit "Update", :class => "submit", data: {disable_with: "Submitting..."} %>
+			<% end %>
+		</div>
+
+<% end %>
