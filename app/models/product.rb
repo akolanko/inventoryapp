@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
 	validates :price, numericality: {only_float: true}, allow_nil: true
 	validates :inventory, presence: true, numericality: {only_integer: true}
 
-	has_attached_file :image, :styles => {:medium => "400x400"}, :default_url => ActionController::Base.helpers.asset_path('missing.jpg'), :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
+	has_attached_file :image, :styles => {:medium => "400x400"}, :default_url => 'missing.jpg', :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 	def s3_credentials
 		{:bucket => ENV['PRODUCTS_BUCKET'], :access_key_id => ENV['AWS_KEY'], :secret_access_key => ENV['AWS_SECRET']}
 	end
