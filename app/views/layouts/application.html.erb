@@ -62,9 +62,25 @@
 										</li>
 									</ul>
 								</li>
-								<li class="menu_item">
-									<%= link_to "My Account", user_path(current_user.id) %>
-								</li>
+								<% if current_user.admin == true %>
+									<li class="menu_item"><a href="#">Users</a>
+										<ul>
+											<li>
+												<%= link_to "My Account", user_path(current_user.id) %>
+											</li>
+											<li>
+												<%= link_to "New User", new_user_path %>
+											</li>
+											<li>
+												<%= link_to "All Users", users_path %>
+											</li>
+										</ul>
+									</li>
+								<% else %>
+									<li class="menu_item">
+										<%= link_to "My Account", user_path(current_user.id) %>
+									</li>
+								<% end %>
 								<li class="menu_item">
 									<%= link_to "Sign Out", signout_path, method: :delete %>
 								</li>
