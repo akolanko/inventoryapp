@@ -13,7 +13,7 @@ class Product < ActiveRecord::Base
 
 	has_attached_file :image, :styles => {:medium => "400x400"}, :default_url => "/images/:style/missing.jpg", :storage => :s3, :s3_credentials => Proc.new{|a| a.instance.s3_credentials }
 	def s3_credentials
-		{:bucket => ENV['AWS_BUCKET'], :access_key_id => ENV['AWS_KEY'], :secret_access_key => ENV['AWS_SECRET']}
+		{:bucket => ENV['PRODUCTS_BUCKET'], :access_key_id => ENV['AWS_KEY'], :secret_access_key => ENV['AWS_SECRET']}
 	end
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
 end

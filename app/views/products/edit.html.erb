@@ -42,6 +42,8 @@
 				<br>
 				<%= f.label :image, "Upload Image" %>
 				<br>
+				<span class="color">Square images of a width between 400px and 1000px render best</span>
+				<br>
 				<%= f.file_field :image %>
 				<br>
 				<%= f.submit "Update", :class => "submit", data: {disable_with: "Submitting..."} %>
