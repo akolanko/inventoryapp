@@ -1,0 +1,416 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+
+
+ */
+
+
+body{
+	font-family: "SackersGothicStd-Medium" "Helvetica", "Arial", sans-serif;
+	text-transform: lowercase;
+	color: #000;
+	font-size: 14px;
+}
+
+.numbers{
+	font-size: .9em;
+}
+
+.color{
+	color: #a9c9b7;
+}
+
+.linkpadding{
+	padding: 10px;
+}
+
+.paddingspan{
+	padding: 20px;
+}
+
+#container{
+	width: 980px;
+ 	margin: 0 auto;
+ 	padding: 0;
+ 	background-color: #fff;
+}
+
+.clear{
+	clear: both;
+}
+
+#header{
+	width: 980px;
+	padding: 0;
+	margin: 40px 0;
+	text-align: center;
+}
+
+div.biggerfont{
+	font-size: 1.1em;
+}
+
+/* --links-- */
+
+a:link{
+	text-decoration: none;
+	color: #000;
+}
+
+a:visited{
+	color: #000;
+}
+
+a:hover{
+	color: #ccc;
+}
+
+a.colorlink:link{
+	text-decoration: none;
+	color: #a9c9b7;
+}
+
+a.colorlink:visited{
+	color: #a9c9b7;
+}
+
+a.colorlink:hover{
+	color: #ccc;
+}
+
+/* --head-- */
+
+h1{
+	height: 30px;
+	padding: 0;
+	margin: 0 auto 30px;
+	letter-spacing: .1em;
+	font-size: 2.1em;
+}
+
+h1 a:link{
+ 	text-decoration: none;
+ 	color: #a9c9b7;
+}
+
+h1 a:visited{
+ 	color: #a9c9b7;
+}
+
+h1 a:hover{
+ 	color: #a9c9b7;
+ 	cursor: pointer;
+}
+
+/* --headers-- */
+
+h2{
+	font-size: 1.5em;
+}
+
+h3{
+	font-size: 1.3em;
+}
+
+h4{
+	font-size: 1.1em;
+}
+
+ /* --navigation menu-- */
+
+#nav{
+	width: 980px;
+ 	height: 30px;
+	margin: 0 auto;
+	padding: 0;
+	line-height: 24px;
+}
+
+ul#menu ul{
+	display: none;
+}
+
+ul#menu li:hover > ul{
+	display: block;
+}
+
+ul#menu{
+	list-style: none;
+	margin: 0;
+	padding: 0 20px;
+	position: relative;
+	display: inline-table;
+}
+
+ul#menu:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+ul#menu li.menu_item{
+ 	float: left;
+}
+
+ul#menu li:hover a{
+	color: #ccc;
+	background: #fff;
+}
+
+ul#menu li a{
+	display: block;
+	padding: 0 20px;
+	color: #000;
+	text-decoration: none;
+}
+
+ul#menu ul{
+	list-style: none;
+	padding: 0;
+	position: absolute;
+	top: 100%;
+}
+
+ul#menu ul li{
+	float: none;
+	position: relative;
+}
+
+ul#menu ul li a{
+	padding: 8px 40px;
+	color: #000;
+}
+
+ul#menu ul li a:hover{
+	color: #a9c9b7;
+}
+
+ /* --content-- */
+
+#content{
+	width: 900px;
+	margin: 40px 40px 0 40px;
+	padding: 0;
+}
+
+.flash{
+	color: #ccc;
+	padding: 0 0 10px 0;
+	letter-spacing: .1em;
+	font-size: 1.1em;
+}
+
+.colone{
+	width: 450px;
+	margin: 0;
+	padding: 0 0 0 50px;
+	float: left;
+}
+
+.coltwo{
+	width: 250px;
+	margin: 0;
+	padding: 50px 0 0 150px;
+	float: left;
+}
+
+/* --footer-- */
+
+#footer{
+	height: 30px;
+	margin: 40px 0;
+	padding: 0;
+	width: 980px;
+}
+
+#left{
+	margin-left: 70px;
+	float: left;
+	width: 420px;
+}
+
+#right{
+	margin-right: 70px;
+	float: right;
+	width: 420px;
+	text-align: right;
+}
+
+/* --forms--- */
+
+ div#formdiv{
+	line-height: 160%;
+}
+
+input[type="date"]{
+   font-family: inherit;
+   font-size: inherit;
+   color: #ccc;
+   width: 250px;
+}
+
+input[type="text"]{
+   font-family: inherit;
+   font-size: inherit;
+   color: #ccc;
+   width: 250px;
+}
+
+input[type="password"]{
+   font-family: inherit;
+   font-size: inherit;
+   color: #ccc;
+   width: 250px;
+}
+
+textarea{
+   font-family: inherit;
+   font-size: inherit;
+   color: #ccc;
+   width: 250px;
+   height: 150px;
+}
+
+.submit{
+	font-size: .9em;
+	font-family: inherit;
+	text-transform: lowercase;
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	letter-spacing: .2em;
+	margin: 10px 0;
+}
+
+input.submit:hover{
+	cursor: pointer;
+	color: #ccc;
+	background-color: #f9f4f4;
+	border-left: 1px solid #ccc;
+	border-top: 1px solid #ccc;
+}
+
+/* --error messages */
+
+ul.errormessages{
+	list-style: none;
+}
+
+ul.errormessages li{
+	color: #ccc;
+}
+
+/* --images-- */
+
+.smallproduct{
+	height: 140px;
+	margin: 0;
+	padding: 0;
+}
+/**
+ * @license
+ * MyFonts Webfont Build ID 2804229, 2014-04-30T20:53:25-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: Sackers Gothic Std Medium by Monotype 
+ * URL: http://www.myfonts.com/fonts/mti/sackers-gothic/std-medium/
+ * Copyright: Copyright 1994, 2003 Monotype Imaging, Inc. All rights reserved.
+ * Licensed pageviews: 250,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=2804229
+ * 
+ * © 2014 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+
+@import url("//hello.myfonts.net/count/2aca05");
+
+  
+@font-face {font-family: 'SackersGothicStd-Medium';src: url('webfonts/2ACA05_0_0.eot');src: url('webfonts/2ACA05_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/2ACA05_0_0.woff') format('woff'),url('webfonts/2ACA05_0_0.ttf') format('truetype');}
+ 
+/* line 1, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/products.css.scss */
+div#productshow {
+  width: 450px;
+  margin: 0 50px 0 0;
+  padding: 0;
+  float: left;
+}
+
+/* line 8, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/products.css.scss */
+div#productimg {
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  margin: 50px 0 0 0;
+  padding: 0;
+  float: left;
+}
+
+/* line 17, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/products.css.scss */
+img.productsquare {
+  width: 350px;
+  padding: 0 0 0 50px;
+}
+
+/* line 22, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/products.css.scss */
+img.smallstrip {
+  height: 150px;
+  margin: 0;
+  padding: 0;
+}
+/* line 1, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/sessions.css.scss */
+button#signup {
+  width: 115px;
+  height: 115px;
+  border-radius: 100%;
+  background-color: #a9c9b7;
+  font-family: inherit;
+  text-transform: lowercase;
+  font-size: 1.2em;
+  letter-spacing: .1em;
+  font-weight: bold;
+  font-weight: normal;
+  text-decoration: none;
+  color: #fff;
+  padding: 0;
+  border: none;
+}
+
+/* line 18, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/sessions.css.scss */
+button#signup:hover {
+  background-color: #cfe3db;
+  cursor: pointer;
+}
+
+/* line 23, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/sessions.css.scss */
+button#signup:visited {
+  color: #fff;
+}
+
+/* line 27, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/sessions.css.scss */
+button#signup:active {
+  background-color: #cfe3db;
+  color: #fff;
+}
+
+/* line 32, /Users/Leksi/Documents/Web/Web Apps/inventoryapp/app/assets/stylesheets/sessions.css.scss */
+.homeimg {
+  width: 600px;
+  margin: 10px 150px;
+}
