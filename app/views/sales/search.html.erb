@@ -13,7 +13,7 @@
 	<% if @sales.first %>
 		<span class="color"><h3>Results:</h3></span>
 		<% @sales.all.each do |sale| %>
-			<%= link_to sale.product.name, user_category_product_path(sale.product.category.user.id, sale.product.category.id, sale.product.id) %>
+			<%= link_to sale.product.name, user_category_product_sales_path(sale.product.category.user.id, sale.product.category.id, sale.product.id) %>
 			<br>
 			Sold Through: <span class="color"><%= sale.through %></span>
 			<br>

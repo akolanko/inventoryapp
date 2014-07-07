@@ -5,7 +5,7 @@
 	<% if @sales.first %>
 		<% @sales.reverse.each do |sale| %>
 
-			<%= link_to sale.product.name, user_category_product_path(@user.id, sale.product.category.id, sale.product.id) %>
+			<%= link_to sale.product.name, user_category_product_sales_path(@user.id, sale.product.category.id, sale.product.id) %>
 			<br>
 			Number Sold: <span class="color"><%= sale.product.sales.all.count %></span>
 			<br>
