@@ -48,6 +48,8 @@ gem 'aws-sdk'
 
 gem 'kaminari'
 
+gem 'mandrill-api', '~>1.0.51'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
