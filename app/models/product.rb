@@ -16,4 +16,5 @@ class Product < ActiveRecord::Base
 		{:bucket => ENV['PRODUCTS_BUCKET'], :access_key_id => ENV['AWS_KEY'], :secret_access_key => ENV['AWS_SECRET']}
 	end
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+	validates :image, dimensions: { width: 800, height: 800 }
 end
