@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(document).ready( function (){
-	menu_iconToggled = false
+	menu_iconToggled = true
 	$("#menu_icon").click( function(){
 		if(menu_iconToggled){
 			$("#mobile_nav").show();
@@ -28,5 +28,17 @@ $(document).ready( function (){
 			menu_iconToggled = true
 		}
 	});
-
+	$(".mobile_menu_item").click( function(){
+		$("#mobile_nav").hide();
+		$("#content").show();
+		menu_iconToggled = true
+	});
+	$(window).resize(function(){
+		var w = $(window).width();
+		if(w > 480){
+			$("#mobile_nav").hide();
+			$("#content").show();
+			menu_iconToggled = true
+		}
+	});
 });
