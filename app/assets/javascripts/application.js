@@ -14,3 +14,19 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready( function (){
+	menu_iconToggled = false
+	$("#menu_icon").click( function(){
+		if(menu_iconToggled){
+			$("#mobile_nav").show();
+			$("#content").hide();
+			menu_iconToggled = false
+		}else{
+			$("#mobile_nav").hide();
+			$("#content").show();
+			menu_iconToggled = true
+		}
+	});
+
+});

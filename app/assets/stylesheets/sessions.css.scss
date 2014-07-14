@@ -26,10 +26,34 @@ button#signup:visited{
 
 button#signup:active{
 	background-color: #cfe3db;
+}
+
+button#signup:active{
+	background-color: #cfe3db;
 	color: #fff;
 }
 
 .homeimg{
 	width: 600px;
 	margin: 10px 150px;
+}
+
+@media all and (max-width: 768px){
+	.homeimg{
+		width: 500px;
+		margin: 10px 40px;
+	}
+}
+
+@media all and (max-width: 480px){
+	button#signup{
+		width: 70px;
+		height: 70px;
+		font-size: 1em;
+	}
+
+	.homeimg{
+		width: 310px;
+		margin: 0;
+	}
 }

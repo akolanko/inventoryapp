@@ -1,5 +1,9 @@
 <% if current_user.id == @user.id || current_user.admin == true %>
 
+	<div id="productimg_top">
+		<%= image_tag @product.image.url(:medium), class: "topimg" %>
+	</div>
+
 	<div id="productshow">
 
 		<h3><%= @product.name %></h3>

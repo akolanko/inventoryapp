@@ -13,8 +13,8 @@
 			There are currently no products of this type.
 		<% end %>
 		<br><br>
-		<span class="linkpadding"><%= link_to "[Add a Product]", new_user_category_product_path(@user.id, @category.id), class: "colorlink" %></span>
-		<span class="linkpadding"><%= link_to "[In Stock]", user_category_instock_path(@user.id, @category.id), class: "colorlink" %></span>
-		<span class="linkpadding"><%= link_to "[Sold Out]", user_category_soldout_path(@user.id, @category.id), class: "colorlink" %></span>
+		<span class="linkpadding link_list"><%= link_to "[Add a Product]", new_user_category_product_path(@user.id, @category.id), class: "colorlink" %></span>
+		<span class="linkpadding link_list"><%= link_to "[In Stock]", user_category_instock_path(@user.id, @category.id), class: "colorlink" %></span>
+		<span class="linkpadding link_list"><%= link_to "[Sold Out]", user_category_soldout_path(@user.id, @category.id), class: "colorlink" %></span>
 	</div>
 <% end %>

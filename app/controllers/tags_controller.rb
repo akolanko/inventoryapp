@@ -24,6 +24,7 @@ class TagsController < ApplicationController
     @category = Category.find(params[:category_id])
     @product = Product.find(params[:product_id])
     @tag = Tag.new(tag_params)
+    @tag.update_attributes(name: @tag.name.downcase)
     @tag.product_id = @product.id
     @tag.user_id = @user.id
     if @tag.save

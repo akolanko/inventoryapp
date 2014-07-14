@@ -6,88 +6,133 @@
 	  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 	  <%= csrf_meta_tags %>
 	  <%= favicon_link_tag 'inventory2favicon.ico' %>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
 	<body>
 		<div id="container">
 			<div id="header">
 				<h1><%= link_to "Inventory Tracker", root_path %></h1>
+				<%=image_tag asset_path("menu_icon.png"), id: "menu_icon"%>
 				<% if current_user %>
 					<div id="nav">
 						<ul id="menu">
-								<li class="menu_item">
-									<%= link_to "Categories", user_categories_path(current_user.id) %>
-								</li>
-								<li class="menu_item"><a href="#">Products</a>
-									<ul>
-										<li>
-											<%=link_to "All Products", user_products_path(current_user.id) %>
-										</li>
-										<li>
-											<%=link_to "Instock", user_instock_path(current_user.id) %>
-										</li>
-										<li>
-											<%=link_to "Sold Out", user_soldout_path(current_user.id) %>
-										</li>
-										<li>
-											<%=link_to "Search", user_tags_search_path(current_user.id) %>
-										</li>
-									</ul>
-								</li>
-								<li class="menu_item"><a href="#">Sales</a>
-									<ul>
-										<li>
-											<%= link_to "All Sales", user_sales_path(current_user.id) %>
-										</li>
-										<li>
-											<%= link_to "Search", user_sales_search_path(current_user.id) %>
-										</li>
-									</ul>
-								</li>
-								<li class="menu_item"><a href="#">Listings</a>
-									<ul>
-										<li>
-											<%= link_to "All Listings", user_listings_path(current_user.id) %>
-										</li>
-										<li>
-											<%= link_to "Search", user_listings_search_path(current_user.id) %>
-										</li>
-									</ul>
-								</li>
-								<li class="menu_item"><a href="#">Locations</a>
-									<ul>
-										<li>
-											<%= link_to "All Locations", user_locations_path(current_user.id) %>
-										</li>
-										<li>
-											<%= link_to "Search", user_locations_search_path(current_user.id) %>
-										</li>
-									</ul>
-								</li>
-								<% if current_user.admin == true %>
-									<li class="menu_item"><a href="#">Users</a>
-										<ul>
-											<li>
-												<%= link_to "My Account", user_path(current_user.id) %>
-											</li>
-											<li>
-												<%= link_to "New User", new_user_path %>
-											</li>
-											<li>
-												<%= link_to "All Users", users_path %>
-											</li>
-										</ul>
+							<li class="menu_item">
+								<%= link_to "Categories", user_categories_path(current_user.id) %>
+							</li>
+							<li class="menu_item"><a href="#">Products</a>
+								<ul>
+									<li>
+										<%=link_to "All Products", user_products_path(current_user.id) %>
 									</li>
-								<% else %>
-									<li class="menu_item">
-										<%= link_to "My Account", user_path(current_user.id) %>
+									<li>
+										<%=link_to "Instock", user_instock_path(current_user.id) %>
 									</li>
-								<% end %>
-								<li class="menu_item">
-									<%= link_to "Sign Out", signout_path, method: :delete %>
+									<li>
+										<%=link_to "Sold Out", user_soldout_path(current_user.id) %>
+									</li>
+									<li>
+										<%=link_to "Search", user_tags_search_path(current_user.id) %>
+									</li>
+								</ul>
+							</li>
+							<li class="menu_item"><a href="#">Sales</a>
+								<ul>
+									<li>
+										<%= link_to "All Sales", user_sales_path(current_user.id) %>
+									</li>
+									<li>
+										<%= link_to "Search", user_sales_search_path(current_user.id) %>
+									</li>
+								</ul>
+							</li>
+							<li class="menu_item"><a href="#">Listings</a>
+								<ul>
+									<li>
+										<%= link_to "All Listings", user_listings_path(current_user.id) %>
+									</li>
+									<li>
+										<%= link_to "Search", user_listings_search_path(current_user.id) %>
+									</li>
+								</ul>
+							</li>
+							<li class="menu_item"><a href="#">Locations</a>
+								<ul>
+									<li>
+										<%= link_to "All Locations", user_locations_path(current_user.id) %>
+									</li>
+									<li>
+										<%= link_to "Search", user_locations_search_path(current_user.id) %>
+									</li>
+								</ul>
+							</li>
+							<% if current_user.admin == true %>
+								<li class="menu_item top_menu_item"><a href="#">Users</a>
+									<ul>
+										<li>
+											<%= link_to "My Account", user_path(current_user.id) %>
+										</li>
+										<li>
+											<%= link_to "New User", new_user_path %>
+										</li>
+										<li>
+											<%= link_to "All Users", users_path %>
+										</li>
+									</ul>
 								</li>
+							<% else %>
+								<li class="menu_item top_menu_item">
+									<%= link_to "My Account", user_path(current_user.id) %>
+								</li>
+							<% end %>
+							<li class="menu_item top_menu_item">
+								<%= link_to "Sign Out", signout_path, method: :delete %>
+							</li>
 						</ul>
 					</div>
 				<% end %>
+
+				<% if current_user %>
+					<div id="mobile_nav">
+						<ul id="mobile_menu">
+							<hr>
+							<li class="mobile_menu_item">
+								<%= link_to "Categories", user_categories_path(current_user.id) %>
+							</li>
+							<hr>
+							<li class="mobile_menu_item">
+								<%=link_to "Products", user_products_path(current_user.id) %>
+							</li>
+							<hr>
+							<li class="mobile_menu_item">
+								<%= link_to "Sales", user_sales_path(current_user.id) %>
+							</li>
+							<hr>
+							<li class="mobile_menu_item">
+								<%= link_to "Listings", user_listings_path(current_user.id) %>
+							</li>
+							<hr>
+							<li class="mobile_menu_item">
+								<%= link_to "All Locations", user_locations_path(current_user.id) %>
+							</li>
+							<hr>
+							<li class="mobile_menu_item">
+								<%= link_to "My Account", user_path(current_user.id) %>
+							</li>
+							<hr>
+							<% if current_user.admin == true %>
+								<li class="mobile_menu_item">
+									<%= link_to "New User", new_user_path %>
+								</li>
+								<hr>
+							<% end %>
+							<li class="mobile_menu_item">
+								<%= link_to "Sign Out", signout_path, method: :delete %>
+							</li>
+							<hr>
+						</ul>
+					</div>
+				<% end %>
+
 			</div>
 			<div id ="content">
 				<% if flash[:notice] %>
@@ -104,7 +149,21 @@
 			</div>
 			<div id="footer">
 				<div id="left">
-					
+					<% if current_user %>
+						<ul id="left_foot_menu">
+							<li class="foot_menu_item">
+								<%= link_to "My Account", user_path(current_user.id) %>
+							</li>
+							<% if current_user.admin == true %>
+								<li class="foot_menu_item">
+									<%= link_to "New User", new_user_path %>
+								</li>
+							<% end %>
+							<li class="foot_menu_item">
+								<%= link_to "Sign Out", signout_path, method: :delete %>
+							</li>
+						</ul>
+					<% end %>
 				</div>
 				<div id="right">
 					<span class="numbers">&copy 2014</span> Aleksandra Kolanko

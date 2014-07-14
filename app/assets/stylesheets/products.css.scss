@@ -1,3 +1,11 @@
+div#productimgtop{
+	display: none;
+}
+
+img.topimg{
+	display: none;
+}
+
 div#productshow{
 	width: 450px;
 	margin: 0 50px 0 0;
@@ -23,4 +31,47 @@ img.smallstrip{
 	height: 150px;
 	margin: 0;
 	padding: 0;
+}
+
+@media all and (max-width: 768px){
+	div#productimgtop{
+		display: block;
+		width: 580px;
+	}
+
+	img.topimg{
+		display: block;
+		width: 350px;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	div#productshow{
+		width: 580px;
+		padding: 0;
+		margin: 10px 0 0 0;
+		display: block
+	}
+
+	div#productimg{
+		display: none;
+	}
+
+	img.productsquare{
+		display: none;
+	}
+}
+
+@media all and (max-width: 480px){
+	div#productimgtop{
+		width: 310px;
+	}
+
+	img.topimg{
+		width: 310px;
+	}
+
+	div#productshow{
+		width: 310px;
+	}
 }
