@@ -7,7 +7,7 @@ class LocationsController < ApplicationController
 
   def search
   	@user = User.find(params[:user_id])
-    @locations = Location.where(user_id: params[:user_id], location: params[:query]).page(params[:page]).per(10)
+    @locations = Location.where(user_id: params[:user_id], location: params[:query].to_s.downcase).page(params[:page]).per(10)
   end
 
   def new
@@ -22,6 +22,7 @@ class LocationsController < ApplicationController
     @category = Category.find(params[:category_id])
     @product = Product.find(params[:product_id])
     @location = Location.new(location_params)
+    @location.update_attributes(location: @location.location.downcase)
     @location.product_id = @product.id
     @location.user_id = @user.id
     if @location.save
@@ -45,7 +46,9 @@ class LocationsController < ApplicationController
     @category = Category.find(params[:category_id])
     @product = Product.find(params[:product_id])
     @location = Location.where(id: params[:id]).first
-    if @location.update_attributes(location_params)
+    @location.update_attributes(location_params)
+    @location.update_attributes(location: @location.location.downcase)
+    if @location.save
       flash[:notice] = "Location updated sucessfully."
       redirect_to user_category_product_path(@user.id, @category.id, @product.id)
     else

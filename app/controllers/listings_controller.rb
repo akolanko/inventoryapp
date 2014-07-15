@@ -7,7 +7,7 @@ class ListingsController < ApplicationController
 
   def search
   	@user = User.find(params[:user_id])
-    @listings = Listing.where(user_id: params[:user_id], website: params[:query]).page(params[:page]).per(10)
+    @listings = Listing.where(user_id: params[:user_id], website: params[:query].to_s.downcase).page(params[:page]).per(10)
   end
 
   def new
@@ -22,6 +22,7 @@ class ListingsController < ApplicationController
   	@category = Category.find(params[:category_id])
     @product = Product.find(params[:product_id])
     @listing = Listing.new(listing_params)
+    @listing.update_attributes(website: @listing.website.downcase)
     @listing.product_id = @product.id
     @listing.user_id = @user.id
     if @listing.save
@@ -45,7 +46,9 @@ class ListingsController < ApplicationController
   	@category = Category.find(params[:category_id])
     @product = Product.find(params[:product_id])
     @listing = Listing.where(id: params[:id]).first
-    if @listing.update_attributes(listing_params)
+    @listing.update_attributes(listing_params)
+    @listing.update_attributes(website: @listing.website.downcase)
+    if @listing.save
       flash[:notice] = "Listing updated sucessfully."
       redirect_to user_category_product_path(@user.id, @category.id, @product.id)
     else

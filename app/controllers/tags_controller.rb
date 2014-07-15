@@ -9,7 +9,7 @@ class TagsController < ApplicationController
 
   def search
   	@user = User.find(params[:user_id])
-    @tags = Tag.where(user_id: params[:user_id], name: params[:query]).page(params[:page]).per(10)
+    @tags = Tag.where(user_id: params[:user_id], name: params[:query].to_s.downcase).page(params[:page]).per(10)
   end
 
   def new
