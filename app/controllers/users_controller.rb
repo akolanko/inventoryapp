@@ -39,6 +39,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def password
+    @user = User.where(id: params[:id]).first
+    if @user.update_attributes(user_params)
+      flash[:notice] = "Password updated sucessfully."
+      redirect_to user_path(@user.id)
+    else
+      flash[:alert] = "There was a problem updating the information."
+      redirect_to :back
+    end
+  end
+
   def destroy
   	@user = User.where(id: params[:id]).first
   	if @user && @user.destroy

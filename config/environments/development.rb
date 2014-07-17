@@ -32,4 +32,14 @@ Inventoryapp::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
 
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.mandrillapp.com",
+    :port      => 25,
+    :enable_starttls_auto => true,
+    :user_name => ENV["MANDRILL_USERNAME"],
+    :password  => ENV["MANDRILL_KEY"],
+    :authentication => 'login',
+    :domain => 'inventorytracker.herokuapp.com'
+  }
+
 end
