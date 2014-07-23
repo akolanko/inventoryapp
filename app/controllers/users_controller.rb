@@ -40,8 +40,9 @@ class UsersController < ApplicationController
   end
 
   def password
-    @user = User.where(id: params[:id]).first
-    if @user.update_attributes(user_params)
+    @user = User.where(id: params[:user_id]).first
+    if @user.password == params[:current_password] && params[:new_password] == params[:confirm_password]
+      @user.update_attributes(password: params[:new_password])
       flash[:notice] = "Password updated sucessfully."
       redirect_to user_path(@user.id)
     else

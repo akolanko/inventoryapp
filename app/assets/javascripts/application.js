@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(document).ready( function (){
-	$("#menu_icon").click( function(){
+	$(document).on('click', "#menu_icon", function(){
 		$("#mobile_nav").slideToggle();
 		$("#content").toggle();
 	});
@@ -25,7 +25,6 @@ $(document).ready( function (){
 		if(w > 480){
 			$("#mobile_nav").hide();
 			$("#content").show();
-			menu_iconToggled = true
 		}
 	});
 });

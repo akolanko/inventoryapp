@@ -24,6 +24,7 @@ Inventoryapp::Application.routes.draw do
     get "/sales" => "sales#all"
     get "/sales/search" => "sales#search"
     get "/tags/search" => "tags#search"
+    get "/password" => "users#password"
   end
   resources :password_resets
 
