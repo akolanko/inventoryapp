@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
 	has_many :sales, dependent: :destroy
 	has_many :tags, dependent: :destroy
 
-	validates :name, presence: true, uniqueness: true
+	validates :name, presence: true
 	validates :color, presence: true
 	validates :material, presence: true
 	validates :price, numericality: {only_float: true}, allow_nil: true
@@ -16,5 +16,5 @@ class Product < ActiveRecord::Base
 		{:bucket => ENV['PRODUCTS_BUCKET'], :access_key_id => ENV['AWS_KEY'], :secret_access_key => ENV['AWS_SECRET']}
 	end
 	validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png"]
-	validates :image, dimensions: { width: 800, height: 800 }
+	validates :image, dimensions: { width: 500, height: 500 }
 end
