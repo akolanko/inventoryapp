@@ -1,6 +1,23 @@
 <% if current_user %>
 	<%=image_tag asset_path("Home.jpg"), class: "homeimg" %>
 <% else %>
+	<div id="lightbox-wrapper">
+		<div id="lightbox">
+			<div id="exit-container">
+				<%= image_tag asset_path("exit.png"), id: "exit" %>
+			</div>
+			<div id="slider">
+				<%= image_tag asset_path('tour1.png'), class: 'slider-img' %>
+				<%= image_tag asset_path('tour2.png'), class: 'slider-img' %>
+				<%= image_tag asset_path('tour3.png'), class: 'slider-img' %>
+				<%= image_tag asset_path('tour4.png'), class: 'slider-img' %>
+				<%= image_tag asset_path('tour5.png'), class: 'slider-img' %>
+				<%= image_tag asset_path('tour6.png'), class: 'slider-img' %>
+				<%= image_tag asset_path('prev.png'), class: 'slider-nav', id: 'prev' %>
+				<%= image_tag asset_path('next.png'), class: 'slider-nav', id: 'next' %>
+			</div>
+		</div>
+	</div>
 	<div class="colone">
 		<h2>Sign In</h2>
 		<div class="formdiv">
@@ -26,6 +43,7 @@
 		<div id="landing-description">
 			A place for small business owners and independent designers to keep track of their product inventory, locations, online listings, and sales.
 			<br>
+			<button id="tour">Take a tour.</button>
 		</div>
 		<div id="sign-up-div">
 			<%= link_to new_user_path, class: "colorlink" do %>

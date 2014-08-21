@@ -16,6 +16,9 @@
 //= require_tree .
 
 $(document).ready( function (){
+
+//MOBILE NAV
+
 	$(document).on('click', "#menu_icon", function(){
 		$("#mobile_nav").slideToggle();
 		$("#content").toggle();
@@ -27,4 +30,48 @@ $(document).ready( function (){
 			$("#content").show();
 		}
 	});
+
+//LIGHTBOX
+
+	$('#tour').click(function() {
+		$('#lightbox-wrapper').fadeIn();
+		$('body').addClass('lightbox-on');
+	});
+
+	$('#exit').click( function() {
+		$('#lightbox-wrapper').fadeOut();
+		$('body').removeClass('lightbox-on');
+	});
+
+//SLIDER
+
+	var currentImageIndex = 0;
+	var numImages = $('.slider-img').length;
+
+//SLIDER-NAVAGATION
+
+	$('#slider').hover(
+		function() {
+			$('.slider-nav').show();
+		}, function() {
+			$('.slider-nav').hide();
+		}
+	);
+
+	$('#next').click( function() {
+		$('.slider-img').eq(currentImageIndex).fadeOut(800);
+
+		currentImageIndex = (currentImageIndex + 1) % numImages;
+
+		$('.slider-img').eq(currentImageIndex).fadeIn(800);
+	});
+
+	$('#prev').click( function() {
+		$('.slider-img').eq(currentImageIndex).fadeOut(800);
+
+		currentImageIndex = (currentImageIndex - 1) % numImages;
+
+		$('.slider-img').eq(currentImageIndex).fadeIn(800);
+	});
+
 });

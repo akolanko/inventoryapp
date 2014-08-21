@@ -48,10 +48,147 @@ button#signup:active{
 	margin: 10px 150px;
 }
 
+button#tour{
+	background-color: #fff;
+	font-family: inherit;
+	font-size: inherit;
+	text-transform: lowercase;
+	border: none;
+	padding: 0;
+	color: #a9c9b7;
+}
+
+button#tour:hover{
+	color: #ccc;
+	cursor: pointer;
+}
+
+/* LIGHTBOX */
+
+#lightbox-on{
+	overflow: hidden;
+}
+
+#lightbox-wrapper{
+	background: #fff;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+	display: none;
+}
+
+$lightbox-height: 558px;
+$lightbox-width: 800px;
+
+#lightbox{
+	position: relative;
+	top: 50%;
+	margin: 0 auto;
+	margin-top: -$lightbox-height/2;
+	height: $lightbox-height;
+	width: $lightbox-width;
+}
+
+#exit-container{
+	height: 24px;
+}
+
+#slider{
+	height: 534px;
+	position: relative;
+}
+
+#exit{
+	margin-left: 776px;
+}
+
+#exit:hover{
+	cursor: pointer;
+	opacity: .5;
+}
+
+.slider-img{
+	width: 800px;
+	position: absolute;
+	display: none;
+}
+
+.slider-img:first-of-type{
+	display: inherit;
+}
+
+.slider-nav{
+	position: absolute;
+	height: 24px;
+	display: none;
+}
+
+.slider-nav:hover{
+	opacity: .5;
+	cursor: pointer;
+}
+
+#prev{
+	margin-top: 267px;
+}
+
+#next{
+	margin-left: 776px;
+	margin-top: 267px;
+}
+
 @media all and (max-width: 768px){
 	.homeimg{
 		width: 500px;
 		margin: 10px 40px;
+	}
+
+	/* LIGHTBOX */
+
+	$lightbox-height: 502.2px;
+	$lightbox-width: 720px;
+
+	#lightbox{
+		margin-top: -$lightbox-height/2;
+		height: $lightbox-height;
+		width: $lightbox-width;
+	}
+
+	#exit-container{
+		height: 21.6px;
+	}
+
+	#exit{
+		height: 21.6px;
+	}
+
+	#slider{
+		height: 480.6px;
+	}
+
+	#exit{
+		margin-left: 698.4px;
+	}
+
+	.slider-img{
+		width: 720px;
+	}
+
+	.slider-nav{
+		height: 21.6px;
+	}
+
+	#prev{
+		margin-top: 240.3px;
+	}
+
+	#next{
+		margin-left: 698.4px;
+		margin-top: 240.3px;
 	}
 }
 
@@ -65,5 +202,49 @@ button#signup:active{
 	.homeimg{
 		width: 310px;
 		margin: 0;
+	}
+
+	/* LIGHTBOX */
+
+	$lightbox-height: 279px;
+	$lightbox-width: 400px;
+
+	#lightbox{
+		margin-top: -$lightbox-height/2;
+		height: $lightbox-height;
+		width: $lightbox-width;
+	}
+
+	#exit-container{
+		height: 12px;
+	}
+
+	#slider{
+		height: 267px;
+	}
+
+	#exit{
+		height: 12px;
+	}
+
+	#exit{
+		margin-left: 388px;
+	}
+
+	.slider-img{
+		width: 400px;
+	}
+
+	.slider-nav{
+		height: 12px;
+	}
+
+	#prev{
+		margin-top: 133.5px;
+	}
+
+	#next{
+		margin-left: 388px;
+		margin-top: 133.5px;
 	}
 }
