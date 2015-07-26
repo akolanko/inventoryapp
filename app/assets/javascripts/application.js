@@ -31,18 +31,6 @@ $(document).ready( function (){
 		}
 	});
 
-//LIGHTBOX
-
-	$('#tour').click(function() {
-		$('#lightbox-wrapper').fadeIn();
-		$('body').addClass('lightbox-on');
-	});
-
-	$('#exit').click( function() {
-		$('#lightbox-wrapper').fadeOut();
-		$('body').removeClass('lightbox-on');
-	});
-
 //SLIDER
 
 	var currentImageIndex = 0;
@@ -72,6 +60,18 @@ $(document).ready( function (){
 		currentImageIndex = (currentImageIndex - 1) % numImages;
 
 		$('.slider-img').eq(currentImageIndex).fadeIn(800);
+	});
+
+//LIGHTBOX
+
+	$('#tour').click(function() {
+		$('#lightbox-wrapper').fadeIn();
+		$('body').addClass('lightbox-on');
+	});
+
+	$('#exit').click( function() {
+		$('#lightbox-wrapper').fadeOut();
+		$('body').removeClass('lightbox-on');
 	});
 
 });
