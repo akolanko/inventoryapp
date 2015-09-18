@@ -18,6 +18,7 @@ body{
 	text-transform: lowercase;
 	color: #000;
 	font-size: 14px;
+	margin: 0;
 }
 
 .numbers{
@@ -110,10 +111,6 @@ h1 a:hover{
  	cursor: pointer;
 }
 
-#menu_icon{
-	display: none;
-}
-
 /* --headers-- */
 
 h2{
@@ -129,6 +126,10 @@ h4{
 }
 
  /* --navigation menu-- */
+
+ #menu_icon{
+	display: none;
+}
 
 #nav{
 	width: 980px;
@@ -444,8 +445,8 @@ ul.errormessages li{
 
 	#menu_icon{
 		display: inline-block;
-		height: 18px;
-		margin-top: 4px;
+		height: 12px;
+		margin-top: 8px;
 	}
 
 	#menu_icon:hover{
