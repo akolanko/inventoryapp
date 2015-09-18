@@ -507,6 +507,7 @@ ul.errormessages li{
 
 	ul#mobile_menu li.mobile_menu_item ul{
 		padding: 0 20px;
+		list-style: none;
 	}
 
 	ul#mobile_menu li.mobile_menu_item ul li{
