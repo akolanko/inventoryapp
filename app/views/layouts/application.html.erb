@@ -100,19 +100,61 @@
 							</li>
 							<hr>
 							<li class="mobile_menu_item">
-								<%=link_to "Products", user_products_path(current_user.id) %>
+								<a href="#">Products</a>
+								<!--<%=link_to "Products", user_products_path(current_user.id) %>-->
+								<ul>
+									<li>
+										<%=link_to "All Products", user_products_path(current_user.id) %>
+									</li>
+									<li>
+										<%=link_to "Instock", user_instock_path(current_user.id) %>
+									</li>
+									<li>
+										<%=link_to "Sold Out", user_soldout_path(current_user.id) %>
+									</li>
+									<li>
+										<%=link_to "Search", user_tags_search_path(current_user.id) %>
+									</li>
+								</ul>
 							</li>
 							<hr>
 							<li class="mobile_menu_item">
-								<%= link_to "Sales", user_sales_path(current_user.id) %>
+								<a href="#">Sales</a>
+								<!--<%= link_to "Sales", user_sales_path(current_user.id) %>-->
+								<ul>
+									<li>
+										<%= link_to "All Sales", user_sales_path(current_user.id) %>
+									</li>
+									<li>
+										<%= link_to "Search", user_sales_search_path(current_user.id) %>
+									</li>
+								</ul>
 							</li>
 							<hr>
 							<li class="mobile_menu_item">
-								<%= link_to "Listings", user_listings_path(current_user.id) %>
+								<a href="#">Listings</a>
+								<!--<%= link_to "Listings", user_listings_path(current_user.id) %>-->
+								<ul>
+									<li>
+										<%= link_to "All Listings", user_listings_path(current_user.id) %>
+									</li>
+									<li>
+										<%= link_to "Search", user_listings_search_path(current_user.id) %>
+									</li>
+								</ul>
 							</li>
 							<hr>
 							<li class="mobile_menu_item">
-								<%= link_to "Locations", user_locations_path(current_user.id) %>
+								<a href="#">Locations</a>
+								<!--<%= link_to "Locations", user_locations_path(current_user.id) %>-->
+								<ul>
+									<li>
+										<%= link_to "All Locations", user_locations_path(current_user.id) %>
+									</li>
+									<li>
+										<%= link_to "Search", user_locations_search_path(current_user.id) %>
+									</li>
+								</ul>
 							</li>
 							<hr>
 							<li class="mobile_menu_item">
@@ -121,7 +163,19 @@
 							<hr>
 							<% if current_user.admin == true %>
 								<li class="mobile_menu_item">
-									<%= link_to "New User", new_user_path %>
+									<a href="#">Users</a>
+									<!--<%= link_to "New User", new_user_path %>-->
+									<ul>
+										<li>
+											<%= link_to "My Account", user_path(current_user.id) %>
+										</li>
+										<li>
+											<%= link_to "New User", new_user_path %>
+										</li>
+										<li>
+											<%= link_to "All Users", users_path %>
+										</li>
+									</ul>
 								</li>
 								<hr>
 							<% end %>

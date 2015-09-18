@@ -505,6 +505,15 @@ ul.errormessages li{
 		color: #ccc;
 	}
 
+	ul#mobile_menu li.mobile_menu_item ul{
+		padding: 0 20px;
+	}
+
+	ul#mobile_menu li.mobile_menu_item ul li{
+		display: block;
+		padding: 5px 0;
+	}
+
 	 /* --content-- */
 
 	#content{
